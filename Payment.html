@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pago - PAPU STORE</title>
+    <link rel="stylesheet" href="css/PaymentStyle.css">
+</head>
+<body>
+
+    <header>
+        <img src="https://www.afflictionclothing.com/cdn/shop/files/AFF-LOGO_ed19edea-c4b0-48ee-92b2-df74bcad19da_2048x.png?v=1613639487" alt="" width="100px">
+        <h1>PAPU STORE</h1>
+    </header>
+
+    <main>
+        <h2>Detalles de Compra</h2>
+
+        <div id="paymentItems">
+            <h3>Artículos en tu carrito:</h3>
+            <ul id="paymentCartItems"></ul>
+            <p id="paymentTotalPrice">Total: $0</p>
+        </div>
+
+        <button onclick="enviarCarritoWhatsApp()">Confirmar Pago</button>
+    </main>
+
+    <footer>
+        <p>© 2024 Papu Store. Derechos reservados para: Alex y Werner :V</p>
+    </footer>
+
+    
+    <script>
+        // deriva datos del carro
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+        const paymentCartItems = document.getElementById('paymentCartItems');
+        const paymentTotalPriceElement = document.getElementById('paymentTotalPrice');
+
+        // muestra las cosas
+        function mostrarCarrito() {
+            let totalPrice = 0;
+            paymentCartItems.innerHTML = ''; 
+
+            cart.forEach(item => {
+                const listItem = document.createElement('li');
+                listItem.textContent = `${item.name} - $${item.price}`;
+                paymentCartItems.appendChild(listItem);
+                totalPrice += item.price;
+            });
+
+            paymentTotalPriceElement.textContent = `Total: $${totalPrice}`;
+        }
+
+        
+        mostrarCarrito();
+
+        
+        function confirmarPago() {
+            if (cart.length > 0) {
+                alert('¡Gracias por tu compra! El pago ha sido procesado.');
+                localStorage.removeItem('cart');
+                window.location.href = "document.html"; 
+            } else {
+                alert('Tu carrito está vacío.');
+            }
+        }
+        
+           // envia el carrito a whatsapp con los pedidos
+           function enviarCarritoWhatsApp() {
+        const numeroTelefono = "51993207614";
+        let mensaje = "Hola, quiero confirmar mi compra con los siguientes productos:%0A"
+        let totalPrice = 0;
+        cart.forEach(item => {
+            mensaje += `- ${item.name}: $${item.price.toFixed(2)}%0A`;
+            totalPrice += item.price;
+        });
+        mensaje += `%0ATotal: $${totalPrice.toFixed(2)}`;
+        const url = `https://wa.me/${numeroTelefono}?text=${mensaje}`;
+        window.open(url, '_blank');
+        }
+
+        
+    </script>
+
+</body>
+</html>

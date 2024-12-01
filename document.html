@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda de Ropa</title>
+    <link rel="stylesheet" href="css/DocumentStyle.css">
+</head>
+<body>
+ 
+    <header>
+        <div class="header-left">
+            <img src="https://www.afflictionclothing.com/cdn/shop/files/AFF-LOGO_ed19edea-c4b0-48ee-92b2-df74bcad19da_2048x.png?v=1613639487" alt="Logo de la tienda" width="100px">
+            <h1>PAPU STORE</h1>
+        </div>
+       
+        <div class="header-nav">
+            <button onclick="window.location.href='Principal.html'">Inicio</button>
+            <button onclick="window.location.href='document.html'">Compras</button>
+        </div>
+       
+        <div class="header-right">
+            <button id="cartButton">Carrito (<span id="cartCount">0</span>)</button>
+        </div>
+    </header>
+    
+ 
+    <main>
+        <div class="product-list">
+            <div class="product">
+                <img src="https://i.etsystatic.com/46143997/r/il/87fcc8/5257404373/il_570xN.5257404373_e98d.jpg" alt="Camisa">
+                <h3>Camisa y2k manga larga</h3>
+                <p>Precio: $25</p>
+                <button class="add-to-cart" data-name="Camisa manga larga" data-price="25">Añadir al carrito</button>
+            </div>
+            <div class="product">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQtL02psldwh9i6U63sLy0Y1HpGlOT5G-KjpQ&s" alt="Pantalón">
+                <h3>Pantalón southpole</h3>
+                <p>Precio: $40</p>
+                <button class="add-to-cart" data-name="Pantalón southpole" data-price="40">Añadir al carrito</button>
+            </div>
+            <div class="product">
+                <img src="https://images-na.ssl-images-amazon.com/images/I/51bEg6bQdsL.jpg" alt="Zapatos">
+                <h3>Zapatos DC</h3>
+                <p>Precio: $60</p>
+                <button class="add-to-cart" data-name="Zapatos DC shoes" data-price="60">Añadir al carrito</button>
+            </div>
+        </div>
+        <div class="product-list">
+            <div class="product">
+                <img src="https://i.redd.it/does-anyone-have-this-korn-x-affliction-shirt-that-they-v0-oyoiq6ln8bcc1.jpg?width=1125&format=pjpg&auto=webp&s=4664e0c64c1be9c3142b18d2c6202c10e2a0ac12" alt="Camisa">
+                <h3>Camisa y2k</h3>
+                <p>Precio: $25</p>
+                <button class="add-to-cart" data-name="Camisa" data-price="25">Añadir al carrito</button>
+            </div>
+            <div class="product">
+                <img src="data:image/jpeg;base64,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" alt="Pantalón">
+                <h3>Pantalón Jnco</h3>
+                <p>Precio: $40</p>
+                <button class="add-to-cart" data-name="Pantalón Jnco" data-price="40">Añadir al carrito</button>
+            </div>
+            <div class="product">
+                <img src="https://i.pinimg.com/736x/04/6c/b2/046cb2ad4cac2505ee9137bc4c905cd5.jpg" alt="Zapatos">
+                <h3>Zapatos Vintage Vans</h3>
+                <p>Precio: $60</p>
+                <button class="add-to-cart" data-name="Zapatos Vintage Vans" data-price="60">Añadir al carrito</button>
+            </div>
+        </div>
+       
+        <div id="cartModal" class="cart-modal">
+            <div class="cart-modal-content">
+                <h2>Carrito de Compras</h2>
+                <ul id="cartItems"></ul>
+                <p id="totalPrice">Total: $0</p>
+                <button id="closeCart">Cerrar</button>
+                <button id="Pay" onclick="redirigir()">Pay</button>
+            </div>
+        </div>
+    </main>
+   
+    <footer>
+        <p>© 2024 Papu Store. Derechos reservados para: Alex y Werner :V</p>
+    </footer>
+   
+ 
+    <script>
+        const cart = [];
+const cartButton = document.getElementById('cartButton');
+const cartCount = document.getElementById('cartCount');
+const cartModal = document.getElementById('cartModal');
+const cartItemsList = document.getElementById('cartItems');
+const totalPriceElement = document.getElementById('totalPrice');
+const closeCartButton = document.getElementById('closeCart');
+ 
+// funcion para actualizar el carrito
+function updateCart() {
+    cartCount.textContent = cart.length;
+    cartItemsList.innerHTML = '';
+    let totalPrice = 0;
+ 
+    cart.forEach(item => {
+        const listItem = document.createElement('li');
+        listItem.textContent = `${item.name} - $${item.price}`;
+        cartItemsList.appendChild(listItem);
+        totalPrice += item.price;
+    });
+ 
+    totalPriceElement.textContent = `Total: $${totalPrice}`;
+}
+ 
+// funcion para abrir el carrito
+cartButton.addEventListener('click', () => {
+    cartModal.style.display = 'flex';
+});
+ 
+// funcion pa cerrar
+closeCartButton.addEventListener('click', () => {
+    cartModal.style.display = 'none';
+});
+ 
+function redirigir() {
+            window.location.href = "Payment.html";
+        }
+ 
+// Agrega products
+const addToCartButtons = document.querySelectorAll('.add-to-cart');
+addToCartButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        const productName = button.getAttribute('data-name');
+        const productPrice = parseFloat(button.getAttribute('data-price'));
+ 
+        cart.push({ name: productName, price: productPrice });
+        updateCart();
+    });
+});
+function redirigir() {
+    // Guardd los datos
+    localStorage.setItem('cart', JSON.stringify(cart));  
+    window.location.href = "Payment.html";
+}
+ 
+ 
+    </script>
+</body>
+</html>
